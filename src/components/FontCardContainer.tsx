@@ -1,6 +1,8 @@
 import * as React from 'react'
-import { TypeFilters, FontTypes } from './App'
+import { TypeFilters } from '../types'
 import FontCard from './FontCard'
+import { Font } from '../types'
+import data from '../fonts'
 
 interface Props {
   filters: {
@@ -9,34 +11,23 @@ interface Props {
   }
 }
 
-export interface Font {
-  name: string
-  type: FontTypes
-}
-
 interface State {
   fonts: Font[]
 }
 
 class FontCardContainer extends React.Component<Props, State> {
-  state = {
-    fonts: [],
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      fonts: [],
+    }
   }
 
   async fetchFonts(): Promise<Font[]> {
     return new Promise<Font[]>((resolve, reject) => {
       setTimeout(() => {
-        resolve([
-          {
-            name: 'open sans',
-            type: 'serif',
-          },
-          {
-            name: 'roboto',
-            type: 'sansSerif',
-          },
-        ])
-      },         1500)
+        resolve(data)
+      }, 1500)
     })
   }
 
@@ -50,11 +41,32 @@ class FontCardContainer extends React.Component<Props, State> {
     })
   }
 
+  appendStyleTags() {
+    this.state.fonts.forEach(font => {
+      const styleEl = document.createElement('style')
+      styleEl.textContent = `
+        ${font.styles.map(
+          style => `
+            @font-face {
+              font-family: '${font.name}';
+              font-style: ${style.style}
+              font-weight: ${style.weight};
+              src: url('${style.url}');
+            }`
+        )}
+      `
+      document.getElementsByTagName('head')[0].appendChild(styleEl)
+    })
+  }
+
   async componentDidMount() {
     const fonts = await this.fetchFonts()
-    this.setState({
-      fonts,
-    })
+    this.setState(
+      {
+        fonts,
+      },
+      this.appendStyleTags
+    )
   }
 
   render() {

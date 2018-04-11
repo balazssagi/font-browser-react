@@ -1,18 +1,7 @@
 import * as React from 'react'
 import FontCardContainer from './FontCardContainer'
 import CheckBox from './CheckBox'
-
-export type FontTypes = 'serif' | 'sansSerif' | 'monospace'
-
-export const SERIF: FontTypes = 'serif'
-export const SANS_SERIF: FontTypes = 'sansSerif'
-export const MONOSPACE: FontTypes = 'monospace'
-
-export interface TypeFilters {
-  [SERIF]: boolean
-  [SANS_SERIF]: boolean
-  [MONOSPACE]: boolean
-}
+import { TypeFilters, FontTypes, SANS_SERIF, SERIF, MONOSPACE } from '../types'
 
 interface State {
   filters: {
