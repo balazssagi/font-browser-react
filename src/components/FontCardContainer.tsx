@@ -31,7 +31,7 @@ class FontCardContainer extends React.Component<Props, State> {
     })
   }
 
-  getFilteredFonts = () => {
+  filteredFonts = (): Font[] => {
     return this.state.fonts.filter((font: Font) => {
       const { filters } = this.props
       return (
@@ -42,6 +42,7 @@ class FontCardContainer extends React.Component<Props, State> {
   }
 
   appendStyleTags() {
+    const headEl = document.getElementsByTagName('head')[0]
     this.state.fonts.forEach(font => {
       const styleEl = document.createElement('style')
       styleEl.textContent = `
@@ -55,7 +56,7 @@ class FontCardContainer extends React.Component<Props, State> {
             }`
         )}
       `
-      document.getElementsByTagName('head')[0].appendChild(styleEl)
+      headEl.appendChild(styleEl)
     })
   }
 
@@ -70,7 +71,7 @@ class FontCardContainer extends React.Component<Props, State> {
   }
 
   render() {
-    return this.getFilteredFonts().map((font: Font) => (
+    return this.filteredFonts().map(font => (
       <FontCard key={font.name} font={font} />
     ))
   }
