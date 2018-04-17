@@ -1,8 +1,11 @@
 import * as React from 'react'
-import { TypeFilters } from '../types'
-import FontCard from './FontCard'
-import { Font } from '../types'
-import data from '../fonts'
+import { TypeFilters, Font } from '../../types'
+import { FontCard } from '../FontCard'
+import data from '../../fonts'
+import './fontCardContainer.css'
+// import axios from 'axios'
+
+// const ENDPOINT = 'http://localhost:1337/font'
 
 interface Props {
   filters: {
@@ -13,14 +16,14 @@ interface Props {
 
 interface State {
   fonts: Font[]
+  previewText: string
 }
 
 class FontCardContainer extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      fonts: [],
-    }
+  state: State = {
+    fonts: [],
+    previewText:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste fuga magnam perspiciatis. Quae tempora similique, incidunt explicabo facere vitae! Et nam praesentium incidunt aliquid ab optio inventore odit distinctio quo!',
   }
 
   async fetchFonts(): Promise<Font[]> {
@@ -29,6 +32,8 @@ class FontCardContainer extends React.Component<Props, State> {
         resolve(data)
       }, 1500)
     })
+    // const fonts = await axios.get<Font[]>(ENDPOINT)
+    // return fonts.data
   }
 
   filteredFonts = (): Font[] => {
@@ -70,11 +75,27 @@ class FontCardContainer extends React.Component<Props, State> {
     )
   }
 
+  handlePreviewChange = (text: string) => {
+    this.setState({
+      previewText: text,
+    })
+  }
+
   render() {
-    return this.filteredFonts().map(font => (
-      <FontCard key={font.name} font={font} />
-    ))
+    const { previewText } = this.state
+    return (
+      <main className="font-card-container">
+        {this.filteredFonts().map(font => (
+          <FontCard
+            key={font.id}
+            font={font}
+            previewText={previewText}
+            onPreviewChange={this.handlePreviewChange}
+          />
+        ))}
+      </main>
+    )
   }
 }
 
-export default FontCardContainer
+export { FontCardContainer }

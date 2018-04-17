@@ -1,7 +1,8 @@
 import * as React from 'react'
-import FontCardContainer from './FontCardContainer'
-import CheckBox from './CheckBox'
-import { TypeFilters, FontTypes, SANS_SERIF, SERIF, MONOSPACE } from '../types'
+import { FontCardContainer } from '../FontCardContainer'
+import { Sidebar } from '../Sidebar'
+import { TypeFilters, FontTypes } from '../../types'
+import './app.css'
 
 interface State {
   filters: {
@@ -30,7 +31,10 @@ class App extends React.Component<{}, State> {
     })
   }
 
-  handleTypeFilterChange = (type: FontTypes, e: React.ChangeEvent<HTMLInputElement>) => {
+  handleTypeFilterChange = (
+    type: FontTypes,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const newTypes = Object.assign({}, this.state.filters.types)
 
     newTypes[type] = e.target.checked
@@ -47,28 +51,16 @@ class App extends React.Component<{}, State> {
     const { filters } = this.state
 
     return (
-      <div>
-        <p>{JSON.stringify(this.state)}</p>
-        <CheckBox
-          label="sans serif"
-          value={filters.types.sansSerif}
-          onChange={(e) => {this.handleTypeFilterChange(SANS_SERIF, e)}}
+      <div className="app">
+        <Sidebar
+          onTypeFilterChange={this.handleTypeFilterChange}
+          onSearchTermChange={this.handleSearchTermChange}
+          filters={filters}
         />
-        <CheckBox
-          label="serif"
-          value={filters.types.serif}
-          onChange={(e) => {this.handleTypeFilterChange(SERIF, e)}}
-        />
-        <CheckBox
-          label="monospace"
-          value={filters.types.monospace}
-          onChange={(e) => {this.handleTypeFilterChange(MONOSPACE, e)}}
-        />
-        <input type="text" value={filters.searchTerm} onChange={this.handleSearchTermChange}/>
         <FontCardContainer filters={filters} />
       </div>
     )
   }
 }
 
-export default App
+export { App }

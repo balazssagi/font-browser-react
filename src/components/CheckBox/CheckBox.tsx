@@ -11,14 +11,16 @@ const CheckBox = (props: Props) => {
   const { label, onChange, value } = props
 
   return (
-    <React.Fragment>
+    <div>
       <label>
-        <span>{label}</span>
         <input type="checkbox" onChange={onChange} checked={value}/>
+        <span>{label}</span>
       </label>
-    </React.Fragment>
+    </div>
   )
 
 }
 
-export default CheckBox
+export {
+  CheckBox
+}

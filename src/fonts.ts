@@ -37,6 +37,186 @@ const fonts: Font[] = [
       },
     ],
   },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: 'roboto',
+    type: 'sansSerif',
+    author: 'google',
+    styles: [
+      {
+        style: 'italic',
+        weight: 800,
+        url: '',
+      },
+      {
+        style: 'italic',
+        weight: 400,
+        url: '',
+      },
+    ],
+  },
 ]
 
 export default fonts
